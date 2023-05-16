@@ -21,8 +21,18 @@
       "matches": [
         "https://*/*"
       ],
+      "allFrames": true,
       "js": [
         "block.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://discord.com/*"
+      ],
+      "allFrames": true,
+      "js": [
+        "discord_check.js"
       ]
     }
   ]
