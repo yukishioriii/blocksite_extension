@@ -12,7 +12,15 @@ async function main() {
   if (isEnabled) doTheBlocking(isStricter);
 }
 function doTheBlocking(isStricter) {
-  let words = ["monsterhunter", "mhrise", "twitter", "anime", "gaming"];
+  if (
+    window.location.href.toLowerCase() === "https://www.reddit.com/" ||
+    window.location.href.toLowerCase() === "https://www.reddit.com"
+  ) {
+    window.location.href = "https://www.google.com/";
+  }
+
+  // let words = ["monsterhunter", "mhrise", "twitter", "anime", "gaming"];
+  let words = [];
   if (isStricter) {
     words = [...words, "twitch", "reddit", "gmail", "youtube"];
   }
@@ -23,6 +31,5 @@ function doTheBlocking(isStricter) {
     }
   }
 }
-
 
 main();
