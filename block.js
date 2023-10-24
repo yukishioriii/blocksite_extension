@@ -14,7 +14,9 @@ async function main() {
 function doTheBlocking(isStricter) {
   if (
     window.location.href.toLowerCase() === "https://www.reddit.com/" ||
-    window.location.href.toLowerCase() === "https://www.reddit.com"
+    window.location.href.toLowerCase() === "https://www.reddit.com" ||
+    window.location.href.toLowerCase() === "https://twitter.com/" ||
+    window.location.href.toLowerCase() === "https://twitter.com" 
   ) {
     window.location.href = "https://www.google.com/";
   }
@@ -22,7 +24,7 @@ function doTheBlocking(isStricter) {
   // let words = ["monsterhunter", "mhrise", "twitter", "anime", "gaming"];
   let words = [];
   if (isStricter) {
-    words = [...words, "twitch", "reddit", "gmail", "youtube"];
+    words = [...words, "twitter", "reddit"];
   }
   console.log();
   for (const banned_word of words) {
