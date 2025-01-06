@@ -3,10 +3,6 @@
   "version": "1.0",
   "manifest_version": 3,
   "description": "Alcohol blocking site.",
-  "action": {
-    "default_popup": "popup.html",
-    "default_title": "Alcohol blocking main"
-  },
   "icons": {
     "16": "lance.png",
     "32": "lance.png",
@@ -21,7 +17,6 @@
       "matches": [
         "https://*/*"
       ],
-      "allFrames": true,
       "js": [
         "block.js"
       ]
@@ -30,7 +25,6 @@
       "matches": [
         "https://discord.com/*"
       ],
-      "allFrames": true,
       "js": [
         "discord_check.js"
       ]

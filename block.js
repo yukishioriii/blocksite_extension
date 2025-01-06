@@ -8,28 +8,39 @@ async function main() {
   isEnabled = result.isEnabled;
   isStricter = result.isStricter;
 
-  console.log("result: %j", result);
-  if (isEnabled) doTheBlocking(isStricter);
+  doTheBlocking(isStricter);
+}
+
+function rewrite_tab() {
+  // document.write('<html><body><pre>guh</pre></body></html>');
+  // document.close();
+  window.location.href = "https://wiby.me/"
 }
 function doTheBlocking(isStricter) {
+  console.log("guh",window.location.host.includes("x.com"))
+  if(window.location.host.toLowerCase().includes("reddit")) {
+    if (!(window.location.href.includes("/s/") || window.location.href.includes("comments"))) {
+      rewrite_tab();
+    }
+  }
   if (
-    window.location.href.toLowerCase() === "https://www.reddit.com/" ||
-    window.location.href.toLowerCase() === "https://www.reddit.com"
+    window.location.host.includes("x.com") ||
+    window.location.href.includes("twitter.com")
   ) {
-    window.location.href = "https://www.google.com/";
+    rewrite_tab();
   }
 
   // let words = ["monsterhunter", "mhrise", "twitter", "anime", "gaming"];
-  let words = [];
-  if (isStricter) {
-    words = [...words, "twitch", "reddit", "gmail", "youtube"];
-  }
-  console.log();
-  for (const banned_word of words) {
-    if (window.location.href.toLowerCase().indexOf(banned_word) > -1) {
-      window.location.href = "https://www.google.com/";
-    }
-  }
+  // let words = [];
+  // if (isStricter) {
+  //   words = [...words, "twitch", "reddit", "gmail", "youtube"];
+  // }
+  // console.log();
+  // for (const banned_word of words) {
+  //   if (window.location.href.toLowerCase().indexOf(banned_word) > -1) {
+  //     window.location.href = "https://www.google.com/";
+  //   }
+  // }
 }
 
 main();
