@@ -14,21 +14,21 @@ async function main() {
 function rewrite_tab() {
   // document.write('<html><body><pre>guh</pre></body></html>');
   // document.close();
-  window.location.href = "https://wiby.me/"
+  window.location.href = "http://192.168.1.94"
 }
 function doTheBlocking(isStricter) {
-  console.log("guh",window.location.host.includes("x.com"))
-  if(window.location.host.toLowerCase().includes("reddit")) {
-    if (!(window.location.href.includes("/s/") || window.location.href.includes("comments"))) {
+  if (window.location.host.toLowerCase().includes("reddit")) {
+    if (!(window.location.href.endsWith("reddit.com/") || window.location.href.endsWith("reddit.com/"))) {
       rewrite_tab();
     }
   }
   if (
-    window.location.host.includes("x.com") ||
+    window.location.host === "x.com" ||
     window.location.href.includes("twitter.com")
   ) {
     rewrite_tab();
   }
+
 
   // let words = ["monsterhunter", "mhrise", "twitter", "anime", "gaming"];
   // let words = [];

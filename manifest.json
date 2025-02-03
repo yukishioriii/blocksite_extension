@@ -1,8 +1,14 @@
 {
-  "name": "Alcohol blocking time",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "Alcoholblock@anigiri",
+      "strict_min_version": "58.0"
+    }
+  },
+  "name": "Alcohol block",
   "version": "1.0",
   "manifest_version": 3,
-  "description": "Alcohol blocking site.",
+  "description": "Alcohol block",
   "icons": {
     "16": "lance.png",
     "32": "lance.png",
@@ -15,6 +21,15 @@
   "content_scripts": [
     {
       "matches": [
+        "https://*.twitch.tv/*"
+      ],
+      "js": [
+        "twitch.js"
+      ]
+    },
+    {
+      "run_at": "document_start",
+      "matches": [
         "https://*/*"
       ],
       "js": [
@@ -22,6 +37,7 @@
       ]
     },
     {
+      "run_at": "document_start",
       "matches": [
         "https://discord.com/*"
       ],
